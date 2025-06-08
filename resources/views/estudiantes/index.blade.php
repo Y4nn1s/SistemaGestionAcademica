@@ -11,7 +11,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Correo</th>
+                <th>Cédula de Identidad</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                 <td>{{ $estudiante->id }}</td>
                 <td>{{ $estudiante->nombre }}</td>
                 <td>{{ $estudiante->apellido }}</td>
-                <td>{{ $estudiante->correo_electrónico ?? 'N/A' }}</td>
+                <td>{{ $estudiante->cedula_identidad }}</td>
                 <td>
                     <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="btn btn-sm btn-warning">Editar</a>
                     <form action="{{ route('estudiantes.destroy', $estudiante->id) }}" method="POST" style="display:inline;">

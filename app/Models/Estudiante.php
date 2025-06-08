@@ -8,7 +8,7 @@ class Estudiante extends Model
 {
     protected $table = 'estudiantes';
 
-    protected $fillable = ['nombre', 'apellido', 'email'];
+    protected $fillable = ['nombre', 'apellido', 'cedula_identidad'];
 
     public function asistencias()
     {
@@ -18,5 +18,10 @@ class Estudiante extends Model
     public function calificaciones()
     {
         return $this->hasMany(Calificacion::class);
+    }
+
+    public function getCedulaIdentidadAttribute($value)
+    {
+        return 'V-' . number_format($value, 0, '', '.');
     }
 }

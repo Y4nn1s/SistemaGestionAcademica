@@ -17,7 +17,7 @@ class EstudianteController extends Controller
     // Muestra el formulario para crear un estudiante
     public function create()
     {
-        return view('estudiante.create');
+        return view('estudiantes.create');
     }
 
     // Guarda un nuevo estudiante
@@ -26,7 +26,7 @@ class EstudianteController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
-            'email' => 'nullable|email|unique:estudiantes',
+            'cedula_identidad' => 'required|numeric|digits:8|unique:estudiantes',
         ]);
 
         Estudiante::create($request->all());
@@ -53,7 +53,7 @@ class EstudianteController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
-            'email' => 'nullable|email|unique:estudiantes,email,'.$estudiante->id,
+            'cedula_identidad' => 'required|numeric|digits:8|unique:estudiantes,cedula_identidad,' . $estudiante->id,
         ]);
 
         $estudiante->update($request->all());

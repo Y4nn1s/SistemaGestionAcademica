@@ -21,8 +21,8 @@
             <input type="text" name="materia" id="materia" class="form-control" value="{{ old('materia', $calificacion->materia) }}" required>
         </div>
         <div class="mb-3">
-            <label for="nota" class="form-label">Nota (0 - 10)</label>
-            <input type="number" step="0.1" min="0" max="10" name="nota" id="nota" class="form-control" value="{{ old('nota', $calificacion->nota) }}" required>
+            <label for="nota" class="form-label">Nota (01 - 20)</label>
+            <input type="number" step="0.1" min="01" max="20" name="nota" id="nota" class="form-control" value="{{ old('nota', $calificacion->nota) }}" required>
         </div>
         <div class="mb-3">
             <label for="fecha_registro" class="form-label">Fecha de Registro</label>

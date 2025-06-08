@@ -18,7 +18,7 @@ class CalificacionController extends Controller
     // Muestra formulario para crear una calificación
     public function create()
     {
-        $students = Estudiante::all();
+        $estudiantes = Estudiante::all();
         return view('calificaciones.create', compact('estudiantes'));
     }
 
@@ -28,7 +28,7 @@ class CalificacionController extends Controller
         $request->validate([
             'estudiante_id' => 'required|exists:estudiantes,id',
             'materia' => 'required|string|max:255',
-            'nota' => 'required|numeric|min:0|max:10',
+            'nota' => 'required|numeric|min:1|max:20',
             'fecha_registro' => 'required|date',
         ]);
 
@@ -48,7 +48,7 @@ class CalificacionController extends Controller
     // Muestra formulario para editar
     public function edit(Calificacion $calificacion)
     {
-        $students = Estudiante::all();
+        $estudiantes = Estudiante::all();
         return view('calificaciones.edit', compact('calificacion', 'estudiantes'));
     }
 
@@ -58,7 +58,7 @@ class CalificacionController extends Controller
         $request->validate([
             'estudiante_id' => 'required|exists:estudiantes,id',
             'materia' => 'required|string|max:255',
-            'nota' => 'required|numeric|min:0|max:10',
+            'nota' => 'required|numeric|min:1|max:20',
             'fecha_registro' => 'required|date',
         ]);
 

@@ -18,4 +18,6 @@ Route::resource('estudiantes', EstudianteController::class);
 Route::resource('asistencias', AsistenciaController::class);
 
 // Rutas para Calificaciones
-Route::resource('calificaciones', CalificacionController::class);
+Route::resource('calificaciones', CalificacionController::class) ->parameters([
+        'calificaciones' => 'calificacion'
+    ]);
